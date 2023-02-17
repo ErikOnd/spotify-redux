@@ -36,3 +36,68 @@
     transform: rotate(360deg);
   }
 }
+
+.side-bar {
+  background-color: black;
+  height: 100vh;
+  min-width: 220px;
+  position: sticky;
+  top: 0px;
+}
+
+body {
+  color: white;
+  background-color: rgb(19, 19, 19);
+}
+
+.logo {
+  width: 200px;
+}
+
+.ml-3.mt-4 {
+  font-weight: 800;
+}
+
+i {
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.sidebar-item {
+  cursor: pointer;
+}
+
+.back-forth-search {
+  display: flex;
+  flex-direction: row;
+  min-width: 300px;
+  position: sticky;
+  top: 0px;
+  z-index: 2;
+}
+
+.input-field {
+  margin-top: 13px;
+  min-width: 200px;
+}
+
+.music-card {
+  background-color: rgb(28, 28, 28);
+  height: 350px;
+  position: relative;
+  cursor: pointer;
+}
+
+.card-title.h5 {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 200px;
+}
+.bi.bi-heart,
+.bi.bi-heart-fill {
+  position: absolute;
+  bottom: 20px;
+  right: 30px;
+  font-size: 30px;
+}
