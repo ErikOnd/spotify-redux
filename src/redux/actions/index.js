@@ -3,6 +3,7 @@ export const REMOVE_FROM_FAVOURITE = "REMOVE_FROM_FAVOURITE";
 export const GET_MUSIC = "GET_MUSIC";
 export const GET_MUSIC_LOADING = "GET_MUSIC_LOADING";
 export const GET_MUSIC_ERROR = "GET_MUSIC_ERROR";
+export const ADD_TO_SELECTED = "ADD_TO_SELECTED";
 
 export const addToFavouriteAction = (musicSelected) => {
   return {
@@ -18,9 +19,16 @@ export const removeFromFavouriteAction = (i) => {
   };
 };
 
+export const addToSelected = (album) => {
+  console.log(album);
+  return {
+    type: ADD_TO_SELECTED,
+    payload: album,
+  };
+};
+
 export const getMusicActionAsync = (query) => {
   return async (dispatch, getState) => {
-    console.log(query);
     dispatch({
       type: GET_MUSIC_LOADING,
       playload: true,

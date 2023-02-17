@@ -3,11 +3,17 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { getMusicActionAsync } from "../redux/actions";
 import MusicCart from "./MusicCart";
-import { GET_MUSIC } from "../redux/actions";
 
 const HomePage = () => {
   const musicArr = useSelector((state) => state.all.music);
   const dispatch = useDispatch();
+
+  const selectedMusic = useSelector((state) => state.selected);
+  console.log(selectedMusic);
+
+  useEffect(() => {
+    console.log(selectedMusic);
+  }, [selectedMusic]);
 
   const [userInput, setUserInput] = useState("");
 
@@ -60,7 +66,13 @@ const HomePage = () => {
           <Row xs={3} sm={4} md={6} className="mt-5 ml-3">
             {musicArr.length > 0 &&
               musicArr.map((music) => {
-                return <MusicCart musicInfo={music} key={music.id}></MusicCart>;
+                return (
+                  <MusicCart
+                    musicInfo={music}
+                    musicArr={musicArr}
+                    key={music.id}
+                  ></MusicCart>
+                );
               })}
           </Row>
         </Col>

@@ -4,6 +4,7 @@ import musicReducer from "../reducers/musicReducer";
 import { persistStore, persistReducer } from "redux-persist";
 import localStorage from "redux-persist/lib/storage";
 import { encryptTransform } from "redux-persist-transform-encrypt";
+import selectedReducer from "../reducers/selectedReducer";
 
 const persistConfig = {
   storage: localStorage,
@@ -18,6 +19,7 @@ const persistConfig = {
 const combinedReducer = combineReducers({
   favourite: favouriteReducer,
   all: musicReducer,
+  selected: selectedReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, combinedReducer);
