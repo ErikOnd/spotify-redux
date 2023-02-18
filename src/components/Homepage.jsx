@@ -1,4 +1,4 @@
-import { Row, Col, Form, FormControl, Button } from "react-bootstrap";
+import { Row, Col, FormControl } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { getMusicActionAsync } from "../redux/actions";
@@ -8,12 +8,8 @@ const HomePage = () => {
   const musicArr = useSelector((state) => state.all.music);
   const dispatch = useDispatch();
 
-  const selectedMusic = useSelector((state) => state.selected);
+  const selectedMusic = useSelector((state) => state).selected;
   console.log(selectedMusic);
-
-  useEffect(() => {
-    console.log(selectedMusic);
-  }, [selectedMusic]);
 
   const [userInput, setUserInput] = useState("");
 
@@ -27,7 +23,7 @@ const HomePage = () => {
 
   return (
     <>
-      {console.log(musicArr)}
+      {console.log(selectedMusic)}
       <Row>
         <Col xs={2} className="side-bar pr-5">
           <Row className="ml-3">
@@ -63,7 +59,7 @@ const HomePage = () => {
               />
             </Col>
           </Col>
-          <Row xs={3} sm={4} md={6} className="mt-5 ml-3">
+          <Row xs={1} sm={2} md={4} xl={6} className="mt-5 ml-3">
             {musicArr.length > 0 &&
               musicArr.map((music) => {
                 return (
@@ -77,6 +73,11 @@ const HomePage = () => {
           </Row>
         </Col>
       </Row>
+      {selectedMusic.album && (
+        <Row className="music-player">
+          <h1>{selectedMusic.album.title}</h1>
+        </Row>
+      )}
     </>
   );
 };

@@ -7,10 +7,9 @@ const initialState = {
 const selectedReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_TO_SELECTED:
-      console.log(123);
+      console.log(action.payload);
       return {
-        ...state,
-        album: action.playload,
+        album: action.payload,
       };
     default:
       return state;

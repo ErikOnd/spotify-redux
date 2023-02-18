@@ -20,7 +20,6 @@ export const removeFromFavouriteAction = (i) => {
 };
 
 export const addToSelected = (album) => {
-  console.log(album);
   return {
     type: ADD_TO_SELECTED,
     payload: album,

@@ -12,15 +12,19 @@ const MusicCart = (props) => {
 
   //const selectedAlbum = useSelector((state) => state.all.music[selected]);
 
-  const updateSelected = () => {
-    props.musicArr !== undefined &&
-      addToSelected(props.musicArr[props.musicArr.indexOf(props.musicInfo)]);
+  const updateSelected = (selectedAlbum) => {
+    selectedAlbum !== undefined && dispatch(addToSelected(selectedAlbum));
   };
 
   return (
     <>
       <Col>
-        <Card className="music-card mb-3 p-3" onClick={updateSelected}>
+        <Card
+          className="music-card mb-3 p-3"
+          onClick={() => {
+            updateSelected(props.musicInfo.album);
+          }}
+        >
           <Card.Img variant="top" src={props.musicInfo.album.cover} />
           <Card.Body className="d-felx justify-content-between">
             <Card.Title>{props.musicInfo.title}</Card.Title>
