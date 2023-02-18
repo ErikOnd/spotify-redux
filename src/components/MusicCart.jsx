@@ -22,26 +22,28 @@ const MusicCart = (props) => {
         <Card
           className="music-card mb-3 p-3"
           onClick={() => {
-            updateSelected(props.musicInfo.album);
+            updateSelected(props.musicInfo);
           }}
         >
           <Card.Img variant="top" src={props.musicInfo.album.cover} />
           <Card.Body className="d-felx justify-content-between">
             <Card.Title>{props.musicInfo.title}</Card.Title>
-            <Card.Text>By {props.musicInfo.artist.name}</Card.Text>
+            <Card.Text className="small-grey">
+              By {props.musicInfo.artist.name}
+            </Card.Text>
           </Card.Body>
         </Card>
 
         {isFav ? (
           <i
-            className="bi bi-heart-fill"
+            className="bi bi-heart-fill album-heart"
             onClick={() =>
               dispatch(removeFromFavouriteAction(props.musicInfo.id))
             }
           ></i>
         ) : (
           <i
-            className="bi bi-heart"
+            className="bi bi-heart album-heart"
             onClick={() => dispatch(addToFavouriteAction(props.musicInfo.id))}
           ></i>
         )}

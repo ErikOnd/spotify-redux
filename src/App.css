@@ -94,8 +94,7 @@ i {
   text-overflow: ellipsis;
   max-width: 200px;
 }
-.bi.bi-heart,
-.bi.bi-heart-fill {
+.album-heart {
   position: absolute;
   bottom: 20px;
   right: 30px;
@@ -108,4 +107,15 @@ i {
   background: rgb(24 24 24);
   height: 90px;
   border-top: 1px solid rgb(40 40 40);
+}
+
+.player-img {
+  max-width: 70px;
+  max-height: 70px;
+  border-radius: 5px;
+}
+
+.small-grey {
+  font-size: 0.75rem;
+  color: rgb(160 160 160);
 }
